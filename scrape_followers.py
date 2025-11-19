@@ -8,8 +8,9 @@ from xpaths_and_css_selectors import *
 from github_user import GithubUser
 
 def scrape_all_followers():
-    # code here
-    return []
+    followers_list = []
+    #if next_page_exists():
+    return followers_list
 def scrape_curr_page():
     user_links = []
     link_elements = driver.find_elements(By.CSS_SELECTOR, "#user-profile-frame > div > div > div.d-table-cell > a")
@@ -19,7 +20,7 @@ def scrape_curr_page():
 
 def next_page_exists():
     try:
-        driver.find_element(By.CSS_SELECTOR, next_follower_page_selector)
+        driver.find_element(By.LINK_TEXT, "Next")
         return True
     except:
         return False
