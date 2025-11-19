@@ -1,4 +1,6 @@
-from selenium.webdriver.chrome import webdriver
+import time
+
+from selenium import webdriver
 from xpaths_and_css_selectors import *
 
 from github_user import GithubUser
@@ -22,6 +24,7 @@ def setup(link):
     :param link: the link the chrome tab opens to
     :return: the chrome driver
     """
+    global driver
     driver = webdriver.Chrome()
     driver.get(link)
     driver.implicitly_wait(1)
