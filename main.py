@@ -1,8 +1,9 @@
 from scrape_followers import get_most_followed
-github_username = "solidsnack"
+github_username = "Joe-Huber"
 github_followers_link = f"https://github.com/{github_username}?tab=followers"
+top_number = 5
 
 if __name__ == "__main__":
-    most_followed = get_most_followed(github_followers_link, 3)
+    most_followed = get_most_followed(github_followers_link, top_number)
     for user in most_followed:
         print(user)
