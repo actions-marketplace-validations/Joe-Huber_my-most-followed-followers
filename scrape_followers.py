@@ -1,16 +1,17 @@
 from selenium.webdriver.chrome import webdriver
 
 from github_user import GithubUser
-
+driver = None
 def scrape_all_followers():
     # code here
     return []
 def scrape_curr_page():
     return 0
 def scrape_user(user_link):
+    driver.get(user_link)
     return GithubUser()
 def get_most_followed(link, num):
-    driver = setup(link)
+    setup(link)
     all_followers = scrape_all_followers()
     all_followers.sort(key=lambda user: user.followers, reverse=True)
     return all_followers[:num]
@@ -23,4 +24,3 @@ def setup(link):
     driver = webdriver.Chrome()
     driver.get(link)
     driver.implicitly_wait(1)
-    return driver
