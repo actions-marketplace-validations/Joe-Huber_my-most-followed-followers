@@ -4,3 +4,6 @@ class GithubUser:
         self.followers = followers
         self.profile_image_link = profile_image_link
         self.link = link
+
+    def __str__(self):
+        return f"Username: {self.name}, Followers: {self.followers}"

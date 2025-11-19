@@ -10,9 +10,12 @@ from github_user import GithubUser
 def scrape_all_followers():
     followers_list = []
     user_links = []
-    while next_page_exists():
+    if next_page_exists():
+        while next_page_exists():
+            user_links.extend(scrape_curr_page())
+            driver.find_element(By.LINK_TEXT, "Next").click()
+    else:
         user_links.extend(scrape_curr_page())
-        driver.find_element(By.LINK_TEXT, "Next").click()
     
     for link in user_links:
         followers_list.append(scrape_user(link))
