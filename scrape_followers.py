@@ -1,3 +1,5 @@
+from selenium.webdriver.chrome import webdriver
+
 from github_user import GithubUser
 
 def scrape_all_followers():
@@ -7,7 +9,18 @@ def scrape_curr_page():
     return 0
 def scrape_user(user_link):
     return GithubUser()
-def get_most_followed(num):
+def get_most_followed(link, num):
+    driver = setup(link)
     all_followers = scrape_all_followers()
     all_followers.sort(key=lambda user: user.followers, reverse=True)
     return all_followers[:num]
+def setup(link):
+    """
+    Declares and initializes the chrome driver
+    :param link: the link the chrome tab opens to
+    :return: the chrome driver
+    """
+    driver = webdriver.Chrome()
+    driver.get(link)
+    driver.implicitly_wait(1)
+    return driver
