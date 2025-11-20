@@ -33,7 +33,7 @@ def run_action():
             table_rows.append(f"| <img src='{user.profile_image_link}' width='30' height='30'> | [{user.name}]({user.link}) | {user.followers} |")
         
         # 4. The timestamp
-        timestamp = f"\n*Last updated: {now_utc} UTC*"
+        timestamp = f"\n\n*Last updated: {now_utc} UTC*" # Add a blank line before the timestamp
 
         # 5. Combine all parts with correct spacing for markdown
         # A blank line is needed between the title and the table for correct rendering
