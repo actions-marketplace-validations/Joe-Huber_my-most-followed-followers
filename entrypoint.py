@@ -37,7 +37,7 @@ def run_action():
 
         # 5. Combine all parts with correct spacing for markdown
         # A blank line is needed between the title and the table for correct rendering
-        full_content = f"{title}\n\n{table_header}\n" + "\n".join(table_rows) + timestamp
+        full_content = f"\n{title}\n\n{table_header}\n" + "\n".join(table_rows) + timestamp
 
         # --- Replace the placeholder in the README ---
         start_placeholder = "<!-- FOLLOWERS_LIST_START -->"
