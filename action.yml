@@ -1,0 +1,21 @@
+name: 'Most Followed Followers Action'
+description: 'Scrapes your most followed followers and updates your README.md with a dynamic list.'
+author: 'Joe-Huber'
+
+inputs:
+  GITHUB_USER_NAME:
+    description: 'Your GitHub username. Defaults to the repository owner.'
+    required: true
+    default: ${{ github.repository_owner }}
+  MAX_FOLLOWER_COUNT:
+    description: 'The number of top followers to display in the table.'
+    required: false
+    default: '5'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: 'users'
+  color: 'blue'

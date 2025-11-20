@@ -1,10 +1,6 @@
-# Find your most followed followers <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="30" height="30">
+# Most Followed Followers GitHub Action
 
-Scrapes through your profile and collects which users are the most followed! ^-^
-
-## Getting Started
-To get started, simply change the variables in `main.py` to your username and how many followers you want to get and run the script! :D
-
+This GitHub Action scrapes your most followed followers and displays them in a dynamic list on your profile's `README.md`.
 
 <!-- FOLLOWERS_LIST_START -->
 ### [My Most Famous Followers](https://github.com/Joe-Huber/my-most-followed-followers)
@@ -17,4 +13,64 @@ To get started, simply change the variables in `main.py` to your username and ho
 *Last updated: 2025-11-20 20:15:21 UTC*
 <!-- FOLLOWERS_LIST_END -->
 
+*Last updated: 2025-11-20 20:40:00 UTC*
+<!-- FOLLOWERS_LIST_END -->
 Psst, if you follow me you can show up on here! ^-^
+
+## Usage
+
+To use this action in your own repository, follow these steps:
+
+1.  **Update your `README.md`:**
+
+    Add the following placeholders to your `README.md` file. This is where the dynamic list of followers will be inserted.
+
+    ```markdown
+    <!-- FOLLOWERS_LIST_START -->
+    <!-- FOLLOWERS_LIST_END -->
+    ```
+
+2.  **Create a GitHub Actions workflow:**
+
+    Create a new file in your repository at `.github/workflows/update_readme.yml` with the following content:
+
+    ```yaml
+    name: Update README with Top Followers
+
+    on:
+      schedule:
+        - cron: '0 0 * * *' # Runs daily at midnight
+      workflow_dispatch:
+
+    jobs:
+      update-readme:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Check out repository
+            uses: actions/checkout@v3
+
+          - name: Update README with most followed followers
+            uses: Joe-Huber/my-most-followed-followers@v1 # Replace with your repo if you forked
+            with:
+              GITHUB_USER_NAME: ${{ github.repository_owner }}
+              MAX_FOLLOWER_COUNT: 10 # Optional: specify the number of followers to show
+    ```
+
+    This workflow will run daily, but you can also trigger it manually from the "Actions" tab in your repository.
+
+## How It Works
+
+This action uses a Docker container to run a Python script that:
+- Scrapes your followers using Selenium.
+- Finds your most followed followers.
+- Updates your `README.md` with a dynamically generated table.
+
+---
+
+
+
+#### Legal Note
+Scraping is allowed in github's TOS: https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies
+    ```
+        You may use information from our Service for the following reasons, regardless of whether the information was scraped, collected through our API, or obtained otherwise
+    ```
