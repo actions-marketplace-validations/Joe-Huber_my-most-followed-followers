@@ -1,5 +1,5 @@
 from datetime import datetime
-from scrape_followers import get_most_followed, driver # Import driver
+from scrape_followers import get_most_followed, close_driver
 from main import github_followers_link
 
 if __name__ == "__main__":
@@ -35,5 +35,4 @@ if __name__ == "__main__":
             f.write(readme_content)
             
     finally:
-        if driver: # Ensure driver exists before quitting
-            driver.quit()
+        close_driver()
