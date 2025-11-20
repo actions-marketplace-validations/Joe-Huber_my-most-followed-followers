@@ -15,9 +15,8 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --d
     && apt-get update \
     && apt-get install -y google-chrome-stable
 
-# Install ChromeDriver using the new JSON endpoints
-RUN CHROME_VERSION=$(google-chrome --version | cut -d' ' -f3) \
-    && CHROME_DRIVER_URL=$(wget -q -O - "https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json" | jq -r ".builds[\"$CHROME_VERSION\"].drivers.chromedriver[0].url") \
+# Install ChromeDriver using the new, stable JSON endpoints
+RUN CHROME_DRIVER_URL=$(wget -q -O - https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json | jq -r '.channels.Stable.downloads.chromedriver[] | select(.platform=="linux64") | .url') \
     && wget -q --continue -P /usr/local/bin "$CHROME_DRIVER_URL" \
     && unzip -o /usr/local/bin/chromedriver-linux64.zip -d /usr/local/bin \
     && rm /usr/local/bin/chromedriver-linux64.zip
