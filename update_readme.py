@@ -12,7 +12,8 @@ if __name__ == "__main__":
 
         # Create the markdown table and add the timestamp
         now_utc = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
-        table = "| Profile | Name | Followers |\n|---|---|---|\n"
+        title = "### [My Most Famous Followers](https://github.com/Joe-Huber/my-most-followed-followers)\n"
+        table = f"{title}| Profile | Name | Followers |\n|---|---|---|\n"
         for user in most_followed:
             table += f"| <img src='{user.profile_image_link}' width='30' height='30'> | [{user.name}]({user.link}) | {user.followers} |\n"
         table += f"\n*Last updated: {now_utc} UTC*"
