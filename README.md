@@ -39,7 +39,7 @@ To use this action in your own repository, follow these steps:
             uses: actions/checkout@v3
 
           - name: Update README with most followed followers
-            uses: Joe-Huber/my-most-followed-followers@main # Or use a specific version like @v1
+            uses: Joe-Huber/my-most-followed-followers@main # Or use a specific version like @v1.0.1
             with:
               GITHUB_USER_NAME: ${{ github.repository_owner }}
               MAX_FOLLOWER_COUNT: 10 # Optional: specify the number of followers to show
