@@ -54,3 +54,10 @@ This action uses a Docker container to run a Python script that:
 <!-- FOLLOWERS_LIST_START -->
 <!-- FOLLOWERS_LIST_END -->
 Psst, if you follow me you can show up on here! ^-^
+
+
+#### Legal Note
+Scraping is allowed in github's TOS: https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies
+    ```
+        You may use information from our Service for the following reasons, regardless of whether the information was scraped, collected through our API, or obtained otherwise
+    ```
