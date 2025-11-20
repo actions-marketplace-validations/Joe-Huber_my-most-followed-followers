@@ -12,9 +12,6 @@ This GitHub Action scrapes your most followed followers and displays them in a d
 
 *Last updated: 2025-11-20 20:15:21 UTC*
 <!-- FOLLOWERS_LIST_END -->
-
-*Last updated: 2025-11-20 20:40:00 UTC*
-<!-- FOLLOWERS_LIST_END -->
 Psst, if you follow me you can show up on here! ^-^
 
 ## Usage
